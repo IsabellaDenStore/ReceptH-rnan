@@ -1,0 +1,11 @@
+<h2>Sök på kokar</h2>
+
+<form action="/cooks" method="GET">
+  <label>Namn</label>
+  <input type="text" name="name" value="<% searchOptions.name %>" />
+  <button type="submit">Sök</button>
+</form>
+<br />
+<% cooks.forEach(cook => { %>
+<div><%=cook.name%></div>
+<% }) %>

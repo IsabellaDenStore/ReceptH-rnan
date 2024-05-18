@@ -1,3 +1,4 @@
+<!--Denna fil är som en gemensam layout till alla sidor -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -6,10 +7,8 @@
     <title>ReceptHörnan</title>
   </head>
   <body>
-    Before
-    <br />
-    <%- body %>
-    <br />
-    After
+    <!--går till filen header genom att ta sig igenom alla andra filer för att sedan kunna se den i webbsidan-->
+    <%- include('../partials/header.ejs') %>
+    <%-include('../partials/errorMessage.ejs') %> <%- body %>
   </body>
 </html>
