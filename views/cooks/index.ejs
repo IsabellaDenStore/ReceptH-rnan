@@ -1,4 +1,4 @@
-<h2>Sök på kokar</h2>
+<h2>Sök på kockar</h2>
 
 <form action="/cooks" method="GET">
   <label>Namn</label>
@@ -8,4 +8,8 @@
 <br />
 <% cooks.forEach(cook => { %>
 <div><%=cook.name%></div>
-<% }) %>
+<a href="/cooks/<%= cook.id %>">View</a>
+
+<a href="/cooks/<%= cook.id %>/edit">Edit</a>
+
+<%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %> <% }) %>

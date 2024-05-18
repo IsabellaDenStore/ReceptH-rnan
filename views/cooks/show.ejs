@@ -1,0 +1,8 @@
+<h2><%= cook.name %></h2>
+<a href="/cooks/<%= cook.id %>/edit">Edit</a>
+<%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %> <% if
+(recipesByCook.length > 0) { %>
+<h2>Recipes By Cook</h2>
+<% recipesByCook.forEach(recipie => { %>
+<img height="150" width="100" src="<%= recipie.coverImagePath %>" />
+<% }) %> <% } %>

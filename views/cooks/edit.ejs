@@ -1,0 +1,7 @@
+<h2>Redigera kockar</h2>
+
+<form action="/cooks/<%= cook.id %>?_method=PUT" method="POST">
+  <%- include('_form_fields') %>
+  <a href="/cooks/<%=cook.id  %>">Avbryt</a>
+  <button type="submit">Uppdatera</button>
+</form>

@@ -1,18 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const multer = require("multer");
-const path = require("path");
-const fs = require("fs");
 const Recipe = require("../models/recipe");
 const Cook = require("../models/cook");
-const uploadPath = path.join("public", Recipe.coverImageBasePath);
 const imageMimeTypes = ["image/jpeg", "image/png", "image/gif"];
-const upload = multer({
-  dest: uploadPath,
-  fileFilter: (req, file, callback) => {
-    callback(null, imageMimeTypes.includes(file.mimetype));
-  },
-});
 
 //Kontroll till alla recept
 router.get("/", async (req, res) => {
@@ -44,34 +34,23 @@ router.get("/new", async (req, res) => {
 });
 
 //Kontroll till att tillverka ett recept
-router.post("/", upload.single("cover"), async (req, res) => {
-  const fileName = req.file != null ? req.file.filename : null;
+router.post("/", async (req, res) => {
   const recipe = new Recipe({
     title: req.body.title,
     cook: req.body.cook,
     publishDate: new Date(req.body.publishDate),
     time: req.body.time,
-    coverImageName: fileName,
     description: req.body.description,
   });
-
+  saveCover(recipe, req.body.cover);
   try {
     const newRecipe = await recipe.save();
     //res.redirect(`recipes/${newRecipe.id}`);
     res.redirect(`recipes`);
   } catch {
-    if (recipe.coverImageName != null) {
-      removeRecipeCover(recipe.coverImageName);
-    }
     renderNewPage(res, recipe, true);
   }
 });
-
-function removeRecipeCover(fileName) {
-  fs.unlink(path.join(uploadPath, fileName), (err) => {
-    if (err) console.error(err);
-  });
-}
 
 async function renderNewPage(res, recipe, hasError = false) {
   try {
@@ -87,4 +66,12 @@ async function renderNewPage(res, recipe, hasError = false) {
   }
 }
 
+function saveCover(recipe, coverEncoded) {
+  if (coverEncoded == null) return;
+  const cover = JSON.parse(coverEncoded);
+  if (cover != null && imageMimeTypes.includes(cover.type)) {
+    recipe.coverImage = new Buffer.from(cover.data, "base64");
+    recipe.coverImageType = cover.type;
+  }
+}
 module.exports = router;

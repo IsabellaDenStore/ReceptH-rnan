@@ -4,7 +4,7 @@
 </div>
 
 <div>
-  <label>Kok</label>
+  <label>Kock</label>
   <select name="cook">
     <% cooks.forEach(cook => { %> <% if (cook.id === recipe.cook) {%>
     <option selected label="<%= cook.name %>" value="<%= cook.id %>"></option>
@@ -30,7 +30,7 @@
 
 <div>
   <label>Bild</label>
-  <input type="file" name="cover" />
+  <input type="file" name="cover" class="filepond" />
 </div>
 
 <div>
