@@ -1,0 +1,33 @@
+<h2>Sök efter recept</h2>
+
+<form action="/recipes" method="GET">
+  <div>
+    <label>Title</label>
+    <input type="text" name="title" value="<% searchOptions.title %>" />
+  </div>
+
+  <div>
+    <label>Publicerad efter</label>
+    <input
+      type="date"
+      name="publishedAfter"
+      value="<% searchOptions.publishedAfter %>"
+    />
+  </div>
+
+  <div>
+    <label>Publicerad innan</label>
+    <input
+      type="date"
+      name="publishedBefore"
+      value="<% searchOptions.publishedBefore %>"
+    />
+  </div>
+
+  <button type="submit">Sök</button>
+</form>
+<div>
+  <% recipes.forEach(recipe => { %>
+  <img height="150" width="100" src="<%= recipe.coverImagePath %>" />
+  <% }) %>
+</div>
