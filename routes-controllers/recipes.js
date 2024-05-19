@@ -45,22 +45,100 @@ router.post("/", async (req, res) => {
   saveCover(recipe, req.body.cover);
   try {
     const newRecipe = await recipe.save();
-    //res.redirect(`recipes/${newRecipe.id}`);
-    res.redirect(`recipes`);
+    res.redirect(`recipes/${newRecipe.id}`);
   } catch {
     renderNewPage(res, recipe, true);
   }
 });
 
+//Visa recept
+router.get("/:id", async (req, res) => {
+  try {
+    const recipe = await Recipe.findById(req.params.id).populate("cook").exec();
+    res.render("recipes/show", { recipe: recipe });
+  } catch {
+    res.redirect("/");
+  }
+});
+
+//Redigera recept
+router.get("/:id/edit", async (req, res) => {
+  try {
+    const recipe = await Recipe.findById(req.params.id);
+    renderEditPage(res, recipe);
+  } catch {
+    res.redirect("/");
+  }
+});
+
+//Uppdatera ett recept
+router.put("/:id", async (req, res) => {
+  let recipe;
+
+  try {
+    recipe = await Recipe.findById(req.params.id);
+    recipe.title = req.body.title;
+    recipe.cook = req.body.cook;
+    recipe.publishDate = new Date(req.body.publishDate);
+    recipe.time = req.body.time;
+    recipe.description = req.body.description;
+
+    if (req.body.cover != null && req.body.cover !== "") {
+      saveCover(recipe, req.body.cover);
+    }
+    await recipe.save();
+    res.redirect(`/recipes/${recipe.id}`);
+  } catch {
+    if (recipe != null) {
+      renderEditPage(res, recipe, true);
+    } else {
+      redirect("/");
+    }
+  }
+});
+
+//Radera ett recept
+router.delete("/:id", async (req, res) => {
+  let recipe;
+  try {
+    recipe = await Recipe.findById(req.params.id);
+    await recipe.deleteOne();
+    res.redirect("/recipes");
+  } catch {
+    if (recipe != null) {
+      res.render("recipes/show", {
+        recipe: recipe,
+        errorMessage: "Could not remove recipe",
+      });
+    } else {
+      res.redirect("/");
+    }
+  }
+});
+
 async function renderNewPage(res, recipe, hasError = false) {
+  renderFormPage(res, recipe, "new", hasError);
+}
+
+async function renderEditPage(res, recipe, hasError = false) {
+  renderFormPage(res, recipe, "edit", hasError);
+}
+
+async function renderFormPage(res, recipe, form, hasError = false) {
   try {
     const cooks = await Cook.find({});
     const params = {
       cooks: cooks,
       recipe: recipe,
     };
-    if (hasError) params.errorMessage = "Error Creating Recipe";
-    res.render("recipes/new", params);
+    if (hasError) {
+      if (form === "edit") {
+        params.errorMessage = "Error Updating Recipe";
+      } else {
+        params.errorMessage = "Error Creating Recipe";
+      }
+    }
+    res.render(`recipes/${form}`, params);
   } catch {
     res.redirect("/recipes");
   }

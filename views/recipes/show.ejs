@@ -1,0 +1,11 @@
+<h2><%= recipe.title %></h2>
+<img width="100" height="150" src="<%= recipe.coverImagePath %>" />
+<div>Kock: <%= recipe.cook.name %></div>
+
+<div>Utgivningsdatum: <%= recipe.publishDate.toDateString() %></div>
+<div>Tid att tillverka: <%= recipe.time %> min</div>
+<div>Beskrivning: <%= recipe.description %></div>
+
+<a href="/recipes/<%= recipe.id %>/edit">Ändra</a>
+<%- include('../partials/deleteForm', { url: `/recipes/${recipe.id}` }) %>
+<a href="/cooks/<%= recipe.cook.id %>">Visa kock</a>

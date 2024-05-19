@@ -3,6 +3,8 @@
 <%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %> <% if
 (recipesByCook.length > 0) { %>
 <h2>Recipes By Cook</h2>
-<% recipesByCook.forEach(recipie => { %>
-<img height="150" width="100" src="<%= recipie.coverImagePath %>" />
+<% recipesByCook.forEach(recipe => { %>
+<a href="/recipes/<%= recipe.id %>">
+  <img height="150" width="100" src="<%= recipe.coverImagePath %>" />
+</a>
 <% }) %> <% } %>

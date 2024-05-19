@@ -1,0 +1,7 @@
+<h2>Redigera recept</h2>
+
+<form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST">
+  <%- include('_form_fields') %>
+  <a href="/recipes">Avbryt</a>
+  <button type="submit">Uppdatera</button>
+</form>
