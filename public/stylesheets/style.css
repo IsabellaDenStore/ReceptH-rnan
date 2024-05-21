@@ -1,0 +1,111 @@
+:root {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  color: black;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: #fdfdfd;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.inner-container {
+  margin: 0 100px;
+}
+
+/*Header*/
+.header-title {
+  color: blue;
+  text-decoration: none;
+  font-size: 40px;
+}
+
+.header-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.header-nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav li {
+  list-style: none;
+}
+
+.header-nav li a {
+  text-decoration: none;
+  color: orange;
+  padding: 16px;
+}
+
+.header-nav li a:hover,
+.header-title:hover {
+  color: rgb(237, 0, 0);
+}
+
+.page-header {
+  font-size: 30px;
+}
+
+/*knappar*/
+.btn {
+  border: 1px solid green;
+  /*ändra från rem till px*/
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  font-family: "Notino", sans-serif;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+
+.btn-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.btn-row > * {
+  margin-left: 1rem;
+}
+
+.btn-row > *:first-child {
+  margin-left: 0;
+}
+
+.btn-yes {
+  color: yellow;
+  background-color: orange;
+}
+
+.btn-yes:hover {
+  color: black;
+  background-color: gray;
+}
+
+.btn-no {
+  color: red;
+  background-color: var(--color-btn-danger-background);
+}
+
+.btn-no:hover {
+  color: var(--color-btn-danger-text-dark);
+  background-color: var(--color-btn-danger-background-dark);
+}

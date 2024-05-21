@@ -1,4 +1,4 @@
-<h2>Sök på kockar</h2>
+<h2 class="page-header">Sök på kockar</h2>
 
 <form action="/cooks" method="GET">
   <label>Namn</label>
@@ -8,8 +8,11 @@
 <br />
 <% cooks.forEach(cook => { %>
 <div><%=cook.name%></div>
-<a href="/cooks/<%= cook.id %>">View</a>
+<div class="btn-row">
+  <a class="btn btn-yes" href="/cooks/<%= cook.id %>">View</a>
 
-<a href="/cooks/<%= cook.id %>/edit">Edit</a>
+  <a class="btn btn-yes" href="/cooks/<%= cook.id %>/edit">Edit</a>
 
-<%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %> <% }) %>
+  <%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %> <% })
+  %>
+</div>

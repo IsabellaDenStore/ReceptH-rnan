@@ -1,4 +1,4 @@
-<h2><%= cook.name %></h2>
+<h2 class="page-header"><%= cook.name %></h2>
 <a href="/cooks/<%= cook.id %>/edit">Edit</a>
 <%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %> <% if
 (recipesByCook.length > 0) { %>

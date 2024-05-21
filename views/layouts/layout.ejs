@@ -26,14 +26,29 @@
     ></script>
     <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
     <script defer src="/javascripts/fileUpload.js"></script>
+
+    <!--Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+
     <title>ReceptHörnan</title>
   </head>
   <body>
     <!--går till filen header genom att ta sig igenom alla andra filer för att sedan kunna se den i webbsidan-->
+    <div class="container">
     <%- include('../partials/header.ejs') %>
+    <div class="inner-container">
     <%-include('../partials/errorMessage.ejs') %> <%- body %>
     <form action="/logout?_method=DELETE" method="POST">
       <button type="submit">Log Out</button>
+      </div>
+      </div>
     </form>
   </body>
 </html>
