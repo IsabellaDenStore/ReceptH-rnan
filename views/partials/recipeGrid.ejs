@@ -1,8 +1,15 @@
+<!--Variabler för att bestämma storleken på receptgriden-->
+<!--Om griden är stor, använd 'recipe-cover-large' som klass, annars ingen klass-->
+<!--Om griden är stor, använd 'recipe-grid-large' som klass, annars ingen klass-->
 <% recipeCoverClass = locals.large ? 'recipe-cover-large' : '' %> <%
 recipeGridClass = locals.large ? 'recipe-grid-large' : '' %>
+
+<!-- Div-element för att visa receptgriden -->
 <div class="recipe-grid <%= recipeGridClass %>">
   <% recipes.forEach(recipe => { %>
+  <!-- Länk till receptets detaljsida -->
   <a href="/recipes/<%= recipe.id %>">
+    <!-- Bild för receptets omslag, storleken ändras beroende på storlek på griden -->
     <img
       class="recipe-cover <%= recipeCoverClass %>"
       src="<%= recipe.coverImagePath %>"

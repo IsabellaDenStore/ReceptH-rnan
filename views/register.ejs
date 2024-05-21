@@ -1,17 +1,22 @@
-<h1 class="page-header">Register</h1>
+<h1 class="page-header">Registrera dig</h1>
 <form action="/register" method="POST">
-  <div>
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" required />
+  <div class="form-row">
+    <div class="form-item">
+      <label for="name">Användarnamn</label>
+      <input type="text" id="name" name="name" required />
+    </div>
+    <div class="form-item">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+    <div class="form-item">
+      <label for="password">Lösenord</label>
+      <input type="password" id="password" name="password" required />
+    </div>
   </div>
-  <div>
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" required />
-  </div>
-  <div>
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password" required />
-  </div>
-  <button type="submit">Register</button>
+  <br>
+  <div class="btn-row">
+  <button class="btn btn-yes" type="submit">Registrera dig</button>
 </form>
-<a href="/login">Login</a>
+<a class="btn btn-yes" href="/login">Logga in</a>
+</div>

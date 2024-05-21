@@ -8,6 +8,8 @@ const cookSchema = new mongoose.Schema({
   },
 });
 
+// Logik för att bestämma om man ska kunna radera en kock innan raderingen genomförs
+// Så att man inte kan radera en kock som är kopplad till ett recept
 cookSchema.pre("deleteOne", async function (next) {
   try {
     const query = this.getFilter();

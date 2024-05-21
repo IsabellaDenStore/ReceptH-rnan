@@ -3,7 +3,7 @@
 <form action="/recipes" method="GET">
   <div class="form-row">
     <div class="form-item">
-      <label>Title</label>
+      <label>Titel</label>
       <input type="text" name="title" value="<% searchOptions.title %>" />
     </div>
   </div>
@@ -32,4 +32,9 @@
   </div>
 </form>
 <br />
-<%- include('../partials/recipeGrid', { recipes: recipes, large: true}) %>
+<div class="columns">
+  <%- include('../partials/recipeGrid', { recipes: recipes, large: true}) %>
+</div>
+<form action="/logout?_method=DELETE" method="POST">
+  <button class="btn btn-no" id="button" type="submit">Logga ut</button>
+</form>

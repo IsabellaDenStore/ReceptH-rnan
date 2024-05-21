@@ -1,27 +1,38 @@
 <h2 class="page-header">Sök på kockar</h2>
 
+<!-- Formulär för att söka efter kockar -->
 <form action="/cooks" method="GET">
   <div class="form-row">
+    <!-- Textinmatningsfält för att söka efter kockens namn -->
     <div class="form-item">
       <label>Namn</label>
+      <!-- Inmatningsfält där användaren kan ange kockens namn -->
       <input type="text" name="name" value="<% searchOptions.name %>" />
     </div>
   </div>
+  <!-- Knapp för att skicka sökningen -->
   <div class="form-row form-row-end">
     <button class="btn btn-yes" type="submit">Sök</button>
   </div>
 </form>
 <br />
+<!-- Loop för att visa information om varje kock -->
 <% cooks.forEach(cook => { %>
 <div class="cook-row">
+  <!-- Visa namnet på kocken -->
   <div class="cook-name"><%=cook.name%></div>
+  <!-- Knappar för att visa, redigera och ta bort kocken -->
   <div class="btn-row">
+    <!-- Knapp för att visa detaljer om kocken -->
     <a class="btn btn-yes" href="/cooks/<%= cook.id %>">View</a>
-
+    <!-- Knapp för att redigera informationen om kocken -->
     <a class="btn btn-yes" href="/cooks/<%= cook.id %>/edit">Edit</a>
-
+    <!-- Delvis mall för att inkludera ett formulär för att ta bort kocken -->
     <%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %>
   </div>
 </div>
 
 <% }) %>
+<form action="/logout?_method=DELETE" method="POST">
+  <button class="btn btn-no" id="button" type="submit">Logga ut</button>
+</form>

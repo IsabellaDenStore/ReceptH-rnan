@@ -1,3 +1,5 @@
+//Laddar upp filer med hjälp av filepond plug in. CSS som hjälper bestämma bildens storlek på olika dela av sidan
+
 const rootStyles = window.getComputedStyle(document.documentElement);
 
 if (

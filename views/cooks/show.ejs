@@ -4,6 +4,12 @@
   <%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %>
 </div>
 
+<!-- Kontrollera om det finns några recept tillagda av kocken -->
 <% if(recipesByCook.length > 0) { %>
-<h2 class="page-header">Recipes By Cook</h2>
+<!-- Om det finns recept, visa rubriken "Recipes By Cook" -->
+<h2 class="page-header">Recept av kocken</h2>
+<!-- Visa ett rutnät av recept tillagda av kocken genom att inkludera en delvis mall -->
 <%- include('../partials/recipeGrid', { recipes: recipesByCook }) %> <% } %>
+<form action="/logout?_method=DELETE" method="POST">
+  <button class="btn btn-no" id="button" type="submit">Logga ut</button>
+</form>

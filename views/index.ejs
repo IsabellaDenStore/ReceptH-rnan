@@ -1,2 +1,11 @@
-<h2 class="page-header">Nyligen tillagd</h2>
-<%- include('partials/recipeGrid', { recipes: recipes, large: true}) %>
+<h1 id="welcome">Välkommen <%= name %>!</h1>
+
+<h2 class="page-header">Nyligen tillaga smarriga måltider</h2>
+<section class="columns">
+  <!--använder en delvis mall som heter "recipeGrid" för att skapa ett  rutnät av recept på sidan. Alltså istället för att upprepa koden för att visa flera recept på flera ställen på sidan, finns en separat delvis mall som vi kan använda där vi behöver visa recept.-->
+  <%- include('partials/recipeGrid', { recipes: recipes, large: true}) %>
+</section>
+<!-- Ett formulär för att logga ut användaren. När användaren trycker på knappen skickas en POST-förfrågan till "/logout?_method=DELETE" för att logga ut användaren. -->
+<form action="/logout?_method=DELETE" method="POST">
+  <button class="btn btn-no" id="button" type="submit">Logga ut</button>
+</form>

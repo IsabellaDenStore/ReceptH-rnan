@@ -2,7 +2,7 @@
 
 :root {
   font-family: "Nunito", sans-serif;
-  font-size: 20px;
+  font-size: 15px;
   color: black;
 }
 
@@ -13,22 +13,71 @@
 }
 
 body {
-  background: #fdfdfd;
+  margin: 0;
+  padding: 0;
+  background: #f4f2ee;
 }
 
 .container {
-  max-width: 1200px;
   margin: auto;
   margin-bottom: 20px;
 }
 
 .inner-container {
-  margin: 0 100px;
+  margin: 0 50px;
+}
+
+#welcome {
+  font-size: 40px;
+}
+
+.columns {
+  flex: 1;
+  margin: 6px;
+  padding: 50px;
+  transition: 0.3s;
+  border-radius: 30px;
+  box-shadow: 1px 1px 9px 5px rgba(0, 0, 0, 0.1);
+  background-color: #305f51;
+}
+
+.columns2 {
+  display: flex;
+  flex-flow: nowrap;
+  justify-content: center;
+}
+
+.column1 {
+  flex: 1;
+  margin: 6px;
+  padding: 50px;
+  transition: 0.3s;
+  border-radius: 30px;
+  box-shadow: 1px 1px 9px 5px rgba(0, 0, 0, 0.1);
+  background-color: #305f51;
+}
+
+.column2 {
+  flex: 2;
+  margin: 6px;
+  padding: 50px;
+  transition: 0.3s;
+  border-radius: 30px;
+  box-shadow: 1px 1px 9px 5px rgba(0, 0, 0, 0.1);
+  background: #ece9e1;
+}
+
+#button {
+  position: fixed;
+  bottom: 15px;
+  left: 10px;
+  cursor: pointer;
+  display: flex;
 }
 
 /*Header*/
 .header-title {
-  color: blue;
+  color: #315e52;
   text-decoration: none;
   font-size: 40px;
 }
@@ -38,7 +87,9 @@ body {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 70px;
+  margin-bottom: 40px;
+  background-color: #a4d3c4;
+  padding: 20px;
 }
 
 .header-nav ul {
@@ -53,13 +104,18 @@ body {
 
 .header-nav li a {
   text-decoration: none;
-  color: orange;
-  padding: 1rem;
+  color: #785c56;
+  background-color: #fedfd6;
+  padding: 9px;
+  border: 3px solid #fbd0c4;
+  margin-left: 8px;
+  border-radius: 200px;
 }
 
-.header-nav li a:hover,
-.header-title:hover {
-  color: rgb(237, 0, 0);
+.header-nav li a:hover {
+  background-color: #fbd0c4;
+  position: relative;
+  top: -4px;
 }
 
 .page-header {
@@ -68,15 +124,13 @@ body {
 
 /*knappar*/
 .btn {
-  border: 5px solid green;
-  /*ändra från rem till px*/
-  border-radius: 0.5rem;
+  border-radius: 200px;
   padding: 0.5rem 1rem;
-  font-size: 1.2rem;
   font-family: "Notino", sans-serif;
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  font-size: 16px;
 }
 
 .btn-row {
@@ -93,23 +147,27 @@ body {
 }
 
 .btn-yes {
-  color: yellow;
-  background-color: orange;
+  color: rgb(69, 68, 68);
+  background-color: #fad993;
+  border: 3px solid #e3bf70;
 }
 
 .btn-yes:hover {
-  color: black;
-  background-color: gray;
+  color: rgb(69, 68, 68);
+  background-color: #e3bf70;
+  border: 3px solid #e3bf70;
 }
 
 .btn-no {
-  color: red;
-  background-color: var(--color-btn-danger-background);
+  color: black;
+  background-color: #f98a62;
+  border: 3px solid #e67b54;
 }
 
 .btn-no:hover {
-  color: var(--color-btn-danger-text-dark);
-  background-color: var(--color-btn-danger-background-dark);
+  color: rgb(69, 68, 68);
+  background-color: #e67b54;
+  border: 3px solid #e67b54;
 }
 
 /*formulär*/
@@ -150,9 +208,9 @@ body {
   height: 2rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
-  border: 1px solid blue;
-  background-color: rgb(164, 164, 164);
-  color: orange;
+  border: 2px solid #785c56;
+  background-color: #ffffff;
+  color: #7e7b7b;
   font-size: 1rem;
   font-weight: normal;
   font-family: "Notino", sans-serif;
@@ -165,13 +223,13 @@ body {
 }
 
 .form-item select option {
-  background-color: black;
+  background-color: rgb(26, 26, 26);
 }
 
 .form-item input:focus,
 .form-item select:focus,
 .form-item textarea:focus {
-  border-color: blueviolet;
+  border-color: #305f51;
 }
 
 .filepond--root {
@@ -180,12 +238,12 @@ body {
 }
 
 .filepond--panel-root {
-  background-color: pink;
-  border: 3px solid gray;
+  background-color: #ffffff;
+  border: 2px solid #785c56;
 }
 
 .filepond--drop-label {
-  color: rgb(255, 55, 0);
+  color: #7e7b7b;
   font-size: inherit;
 }
 
@@ -202,24 +260,24 @@ body {
 
 /*bilder på maträtter*/
 .recipe-cover {
-  width: 200px;
-  height: calc(200px / 0.75); /* 200px width divided by 0.75 aspect ratio */
+  width: 310px;
+  height: calc(310px / 1.7714);
 }
 
 .recipe-cover-large {
-  width: 325px;
-  height: calc(325px / 0.75); /* 325px width divided by 0.75 aspect ratio */
+  width: 310px;
+  height: calc(310px / 1.7714);
 }
 
 .recipe-grid {
   display: grid;
   justify-content: center;
-  grid-gap: 2rem;
-  grid-template-columns: repeat(auto-fill, 200px);
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill, 310px);
 }
 
 .recipe-grid-large {
-  grid-template-columns: repeat(auto-fill, 325px);
+  grid-template-columns: repeat(auto-fill, 310px);
 }
 
 .recipe-details {
@@ -227,9 +285,10 @@ body {
 }
 
 .recipe-details-label {
-  font-size: 1.2rem;
   font-weight: 500;
   align-self: flex-start;
+  font-weight: bold;
+  font-size: 19px; /* Storlek på etiketterna */
 }
 
 .recipe-details-grid {
@@ -238,6 +297,8 @@ body {
   align-items: center;
   grid-gap: 1rem;
   grid-template-columns: auto auto;
+  gap: 20px; /* Justera mellanrummet mellan kolumner och rader */
+  font-size: 17px; /* Standard textstorlek */
 }
 
 .recipe-details-btn-grid {
@@ -257,7 +318,102 @@ body {
   justify-self: stretch;
 }
 
+.recipe-grid .recipe-cover {
+  transition: transform 0.3s ease; /* Smooth transition */
+  border-radius: 30px;
+  box-shadow: 1px 1px 9px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-grid .recipe-cover:hover {
+  transform: translateY(-10px); /* Move up by 10px on hover */
+}
+
 /*till error message*/
 .error-message {
-  color: pink;
+  color: rgb(255, 32, 69);
+}
+
+/*responsive*/
+
+@media screen and (max-width: 988px) {
+  .recipe-details-label {
+    font-size: 15px; /* Storlek på etiketterna */
+  }
+
+  .recipe-details-grid {
+    font-size: 13px; /* Standard textstorlek */
+  }
+
+  .recipe-cover {
+    width: 260px;
+    height: calc(260px / 1.7714);
+  }
+
+  .recipe-cover-large {
+    width: 310px;
+    height: calc(310px / 1.7714);
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .inner-container {
+    margin: 0 5px;
+  }
+
+  .recipe-cover-large {
+    width: 300px;
+    height: calc(300px / 1.7714);
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .recipe-details {
+    flex-direction: column;
+  }
+
+  .column1,
+  .column2 {
+    width: 100%;
+    margin: 6px 0;
+  }
+  .recipe-cover {
+    width: 410px;
+    height: calc(410px / 1.7714);
+  }
+
+  .recipe-cover-large {
+    width: 350px;
+    height: calc(350px / 1.7714);
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .recipe-details {
+    flex-direction: column;
+    align-items: center; /* Centrera innehållet vertikalt */
+  }
+
+  .column1,
+  .column2 {
+    width: 100%;
+    margin: 6px 0;
+    text-align: center; /* Centrera knapparna horisontellt */
+  }
+
+  .recipe-cover {
+    width: 100%; /* Ta upp hela bredden av kolumnen */
+    height: auto; /* Anpassa höjden automatiskt för att behålla proportionerna */
+    max-width: 370px; /* Sätt en maxbredd för att förhindra att bilden blir för stor */
+  }
+
+  .recipe-details-btn-grid {
+    margin-top: 10px; /* Öka avståndet mellan knapparna och den övre kolumnen */
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .header-nav li a {
+    display: block;
+    margin-bottom: 10px; /* Justera avståndet mellan länkarna */
+  }
 }

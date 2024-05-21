@@ -4,6 +4,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <link
       href="https://unpkg.com/filepond/dist/filepond.css"
       rel="stylesheet"
@@ -42,13 +43,10 @@
   <body>
     <!--går till filen header genom att ta sig igenom alla andra filer för att sedan kunna se den i webbsidan-->
     <div class="container">
-    <%- include('../partials/header.ejs') %>
-    <div class="inner-container">
-    <%-include('../partials/errorMessage.ejs') %> <%- body %>
-    <form action="/logout?_method=DELETE" method="POST">
-      <button type="submit">Log Out</button>
+      <%- include('../partials/header.ejs') %>
+      <div class="inner-container">
+        <%-include('../partials/errorMessage.ejs') %> <%- body %>
       </div>
-      </div>
-    </form>
+    </div>
   </body>
 </html>

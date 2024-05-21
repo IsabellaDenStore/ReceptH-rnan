@@ -1,9 +1,13 @@
 <h2 class="page-header">Nya recept</h2>
 
+<!-- Formulär för att skapa ett nytt recept -->
 <form action="/recipes" method="POST">
   <%- include('_form_fields') %>
   <div class="form-row form-row-end btn-row">
     <a class="btn btn-no" href="/recipes">Avbryt</a>
     <button class="btn btn-yes" type="submit">Skapa</button>
   </div>
+</form>
+<form action="/logout?_method=DELETE" method="POST">
+  <button class="btn btn-no" id="button" type="submit">Logga ut</button>
 </form>

@@ -1,10 +1,14 @@
 <h2><%= recipe.title %></h2>
 <div class="recipe-details">
-  <div>
+  <div class="column1">
     <img class="recipe-cover" src="<%= recipe.coverImagePath %>" />
+
+    <!-- Knappar för att ändra, radera eller visa kocken som lagt upp receptet -->
     <div class="recipe-details-btn-grid">
       <a class="btn btn-yes" href="/recipes/<%= recipe.id %>/edit">Ändra</a>
+      <!-- Här finns ett formulär för att radera receptet -->
       <%- include('../partials/deleteForm', { url: `/recipes/${recipe.id}` }) %>
+      <!-- Knapp för att visa kocken -->
       <a
         class="btn btn-yes recipe-details-cook-button"
         href="/cooks/<%= recipe.cook.id %>"
@@ -13,14 +17,24 @@
     </div>
   </div>
 
-  <div class="recipe-details-grid">
-    <div class="recipe-details-label">Kock:</div>
-    <div><%= recipe.cook.name %></div>
-    <div class="recipe-details-label">Utgivningsdatum:</div>
-    <div><%= recipe.publishDate.toDateString() %></div>
-    <div class="recipe-details-label">Tid att tillverka:</div>
-    <div><%= recipe.time %> min</div>
-    <div class="recipe-details-label">Beskrivning:</div>
-    <div><%= recipe.description %></div>
+  <div class="column2">
+    <!-- Här visas detaljer som vem som lagt upp receptet, när det publicerades, hur lång tid det tar att laga och en beskrivning -->
+    <div class="recipe-details-grid">
+      <div class="recipe-details-label">Kock:</div>
+      <!-- Namnet på kocken som lagt upp receptet visas här -->
+      <div><%= recipe.cook.name %></div>
+      <!-- Uppgifter om när receptet publicerades visas här -->
+      <div class="recipe-details-label">Utgivningsdatum:</div>
+      <div><%= recipe.publishDate.toDateString() %></div>
+      <!-- Tiden som behövs för att laga receptet visas här -->
+      <div class="recipe-details-label">Tid att tillverka:</div>
+      <div><%= recipe.time %> min</div>
+      <!-- En kort beskrivning av receptet visas här -->
+      <div class="recipe-details-label">Beskrivning:</div>
+      <div><%= recipe.description %></div>
+    </div>
   </div>
+  <form action="/logout?_method=DELETE" method="POST">
+    <button class="btn btn-no" id="button" type="submit">Logga ut</button>
+  </form>
 </div>
