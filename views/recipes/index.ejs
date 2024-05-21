@@ -1,30 +1,35 @@
 <h2 class="page-header">Sök efter recept</h2>
 
 <form action="/recipes" method="GET">
-  <div>
-    <label>Title</label>
-    <input type="text" name="title" value="<% searchOptions.title %>" />
+  <div class="form-row">
+    <div class="form-item">
+      <label>Title</label>
+      <input type="text" name="title" value="<% searchOptions.title %>" />
+    </div>
   </div>
 
-  <div>
-    <label>Publicerad efter</label>
-    <input
-      type="date"
-      name="publishedAfter"
-      value="<% searchOptions.publishedAfter %>"
-    />
+  <div class="form-row">
+    <div class="form-item">
+      <label>Publicerad efter</label>
+      <input
+        type="date"
+        name="publishedAfter"
+        value="<% searchOptions.publishedAfter %>"
+      />
+    </div>
+    <div class="form-item">
+      <label>Publicerad innan</label>
+      <input
+        type="date"
+        name="publishedBefore"
+        value="<% searchOptions.publishedBefore %>"
+      />
+    </div>
   </div>
 
-  <div>
-    <label>Publicerad innan</label>
-    <input
-      type="date"
-      name="publishedBefore"
-      value="<% searchOptions.publishedBefore %>"
-    />
+  <div class="form-row form-row-end">
+    <button class="btn btn-yes" type="submit">Sök</button>
   </div>
-
-  <button type="submit">Sök</button>
 </form>
 <div>
   <% recipes.forEach(recipe => { %>

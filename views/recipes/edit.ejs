@@ -2,6 +2,9 @@
 
 <form action="/recipes/<%= recipe.id %>?_method=PUT" method="POST">
   <%- include('_form_fields') %>
-  <a href="/recipes">Avbryt</a>
-  <button type="submit">Uppdatera</button>
+
+  <div class="form-row form-row-end btn-row">
+    <a class="btn btn-no" href="/recipes">Avbryt</a>
+    <button class="btn btn-yes" type="submit">Uppdatera</button>
+  </div>
 </form>

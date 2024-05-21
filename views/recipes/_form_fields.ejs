@@ -1,39 +1,45 @@
-<div>
-  <label>Titel</label>
-  <input type="text" name="title" value="<%= recipe.title%>" />
+<div class="form-row">
+  <div class="form-item">
+    <label>Titel</label>
+    <input type="text" name="title" value="<%= recipe.title%>" />
+  </div>
+
+  <div class="form-item">
+    <label>Kock</label>
+    <select name="cook">
+      <% cooks.forEach(cook => { %> <% if (cook.id === recipe.cook) {%>
+      <option selected label="<%= cook.name %>" value="<%= cook.id %>"></option>
+      <% } else {%>
+      <option label="<%= cook.name %>" value="<%= cook.id %>"></option>
+      <% } %> <% }) %>
+    </select>
+  </div>
 </div>
 
-<div>
-  <label>Kock</label>
-  <select name="cook">
-    <% cooks.forEach(cook => { %> <% if (cook.id === recipe.cook) {%>
-    <option selected label="<%= cook.name %>" value="<%= cook.id %>"></option>
-    <% } else {%>
-    <option label="<%= cook.name %>" value="<%= cook.id %>"></option>
-    <% } %> <% }) %>
-  </select>
+<div class="form-row">
+  <div class="form-item">
+    <label>Utgivningsdatum</label>
+    <input
+      type="date"
+      name="publishDate"
+      value="<%= recipe.publishDate == null ? '' : recipe.publishDate.toISOString().split('T')[0]%>"
+    />
+  </div>
+
+  <div class="form-item">
+    <label>Tid att tillverka (min)</label>
+    <input type="number" name="time" min="1" value="<%= recipe.time%>" />
+  </div>
 </div>
 
-<div>
-  <label>Utgivningsdatum</label>
-  <input
-    type="date"
-    name="publishDate"
-    value="<%= recipe.publishDate == null ? '' : recipe.publishDate.toISOString().split('T')[0]%>"
-  />
-</div>
+<div class="form-row">
+  <div class="form-item form-item-no-grow">
+    <label>Bild</label>
+    <input type="file" name="cover" class="filepond" />
+  </div>
 
-<div>
-  <label>Tid att tillverka (min)</label>
-  <input type="number" name="time" min="1" value="<%= recipe.time%>" />
-</div>
-
-<div>
-  <label>Bild</label>
-  <input type="file" name="cover" class="filepond" />
-</div>
-
-<div>
-  <label>Beskrivning</label>
-  <textarea name="description"><% recipe.description %></textarea>
+  <div class="form-item">
+    <label>Beskrivning</label>
+    <textarea name="description"><% recipe.description %></textarea>
+  </div>
 </div>

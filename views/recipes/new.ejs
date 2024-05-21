@@ -2,6 +2,8 @@
 
 <form action="/recipes" method="POST">
   <%- include('_form_fields') %>
-  <a href="/recipes">Avbryt</a>
-  <button type="submit">Skapa</button>
+  <div class="form-row form-row-end btn-row">
+    <a class="btn btn-no" href="/recipes">Avbryt</a>
+    <button class="btn btn-yes" type="submit">Skapa</button>
+  </div>
 </form>
