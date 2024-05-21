@@ -1,3 +1,5 @@
+@import "shared/recipes.css";
+
 :root {
   font-family: "Nunito", sans-serif;
   font-size: 20px;
@@ -52,7 +54,7 @@ body {
 .header-nav li a {
   text-decoration: none;
   color: orange;
-  padding: 16px;
+  padding: 1rem;
 }
 
 .header-nav li a:hover,
@@ -69,8 +71,8 @@ body {
   border: 5px solid green;
   /*ändra från rem till px*/
   border-radius: 0.5rem;
-  padding: 10px 15px;
-  font-size: 15px;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
   font-family: "Notino", sans-serif;
   cursor: pointer;
   text-decoration: none;
@@ -185,4 +187,77 @@ body {
 .filepond--drop-label {
   color: rgb(255, 55, 0);
   font-size: inherit;
+}
+
+/*namnen på alla kockar*/
+.cook-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.cook-name {
+  font-size: 1.5rem;
+}
+
+/*bilder på maträtter*/
+.recipe-cover {
+  width: 200px;
+  height: calc(200px / 0.75); /* 200px width divided by 0.75 aspect ratio */
+}
+
+.recipe-cover-large {
+  width: 325px;
+  height: calc(325px / 0.75); /* 325px width divided by 0.75 aspect ratio */
+}
+
+.recipe-grid {
+  display: grid;
+  justify-content: center;
+  grid-gap: 2rem;
+  grid-template-columns: repeat(auto-fill, 200px);
+}
+
+.recipe-grid-large {
+  grid-template-columns: repeat(auto-fill, 325px);
+}
+
+.recipe-details {
+  display: flex;
+}
+
+.recipe-details-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  align-self: flex-start;
+}
+
+.recipe-details-grid {
+  display: grid;
+  align-content: flex-start;
+  align-items: center;
+  grid-gap: 1rem;
+  grid-template-columns: auto auto;
+}
+
+.recipe-details-btn-grid {
+  display: grid;
+  justify-items: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  grid-template-areas:
+    "edit delete"
+    "cook cook";
+  grid-gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.recipe-details-cook-button {
+  grid-area: cook;
+  justify-self: stretch;
+}
+
+/*till error message*/
+.error-message {
+  color: pink;
 }

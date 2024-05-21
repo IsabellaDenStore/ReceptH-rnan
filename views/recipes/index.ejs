@@ -31,10 +31,5 @@
     <button class="btn btn-yes" type="submit">Sök</button>
   </div>
 </form>
-<div>
-  <% recipes.forEach(recipe => { %>
-  <a href="/recipes/<%= recipe.id %>">
-    <img height="150" width="100" src="<%= recipe.coverImagePath %>" />
-  </a>
-  <% }) %>
-</div>
+<br />
+<%- include('../partials/recipeGrid', { recipes: recipes, large: true}) %>

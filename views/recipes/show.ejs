@@ -1,11 +1,26 @@
 <h2><%= recipe.title %></h2>
-<img width="100" height="150" src="<%= recipe.coverImagePath %>" />
-<div>Kock: <%= recipe.cook.name %></div>
+<div class="recipe-details">
+  <div>
+    <img class="recipe-cover" src="<%= recipe.coverImagePath %>" />
+    <div class="recipe-details-btn-grid">
+      <a class="btn btn-yes" href="/recipes/<%= recipe.id %>/edit">Ändra</a>
+      <%- include('../partials/deleteForm', { url: `/recipes/${recipe.id}` }) %>
+      <a
+        class="btn btn-yes recipe-details-cook-button"
+        href="/cooks/<%= recipe.cook.id %>"
+        >Visa kock</a
+      >
+    </div>
+  </div>
 
-<div>Utgivningsdatum: <%= recipe.publishDate.toDateString() %></div>
-<div>Tid att tillverka: <%= recipe.time %> min</div>
-<div>Beskrivning: <%= recipe.description %></div>
-
-<a href="/recipes/<%= recipe.id %>/edit">Ändra</a>
-<%- include('../partials/deleteForm', { url: `/recipes/${recipe.id}` }) %>
-<a href="/cooks/<%= recipe.cook.id %>">Visa kock</a>
+  <div class="recipe-details-grid">
+    <div class="recipe-details-label">Kock:</div>
+    <div><%= recipe.cook.name %></div>
+    <div class="recipe-details-label">Utgivningsdatum:</div>
+    <div><%= recipe.publishDate.toDateString() %></div>
+    <div class="recipe-details-label">Tid att tillverka:</div>
+    <div><%= recipe.time %> min</div>
+    <div class="recipe-details-label">Beskrivning:</div>
+    <div><%= recipe.description %></div>
+  </div>
+</div>

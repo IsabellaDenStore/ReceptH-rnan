@@ -13,13 +13,15 @@
 </form>
 <br />
 <% cooks.forEach(cook => { %>
-<div><%=cook.name%></div>
-<div class="btn-row">
-  <a class="btn btn-yes" href="/cooks/<%= cook.id %>">View</a>
+<div class="cook-row">
+  <div class="cook-name"><%=cook.name%></div>
+  <div class="btn-row">
+    <a class="btn btn-yes" href="/cooks/<%= cook.id %>">View</a>
 
-  <a class="btn btn-yes" href="/cooks/<%= cook.id %>/edit">Edit</a>
+    <a class="btn btn-yes" href="/cooks/<%= cook.id %>/edit">Edit</a>
 
-  <%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %>
+    <%- include('../partials/deleteForm', { url: `/cooks/${cook.id}` }) %>
+  </div>
 </div>
 
 <% }) %>

@@ -1,9 +1,2 @@
 <h2 class="page-header">Nyligen tillagd</h2>
-
-<div>
-  <% recipes.forEach(recipe => { %>
-  <a href="/recipes/<%= recipe.id %>">
-    <img height="150" width="100" src="<%= recipe.coverImagePath %>" />
-  </a>
-  <% }) %>
-</div>
+<%- include('partials/recipeGrid', { recipes: recipes, large: true}) %>

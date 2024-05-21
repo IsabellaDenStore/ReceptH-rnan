@@ -6,8 +6,4 @@
 
 <% if(recipesByCook.length > 0) { %>
 <h2 class="page-header">Recipes By Cook</h2>
-<% recipesByCook.forEach(recipe => { %>
-<a href="/recipes/<%= recipe.id %>">
-  <img height="150" width="100" src="<%= recipe.coverImagePath %>" />
-</a>
-<% }) %> <% } %>
+<%- include('../partials/recipeGrid', { recipes: recipesByCook }) %> <% } %>

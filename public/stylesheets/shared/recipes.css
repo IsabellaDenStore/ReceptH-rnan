@@ -1,0 +1,5 @@
+:root {
+  --recipe-cover-width: 200px;
+  --recipe-cover-width-large: 325px;
+  --recipe-cover-aspect-ratio: 0.75;
+}
