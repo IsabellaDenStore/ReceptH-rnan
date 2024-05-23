@@ -369,27 +369,6 @@ body {
 @media screen and (max-width: 765px) {
   .recipe-details {
     flex-direction: column;
-  }
-
-  .column1,
-  .column2 {
-    width: 100%;
-    margin: 6px 0;
-  }
-  .recipe-cover {
-    width: 410px;
-    height: calc(410px / 1.7714);
-  }
-
-  .recipe-cover-large {
-    width: 350px;
-    height: calc(350px / 1.7714);
-  }
-}
-
-@media screen and (max-width: 765px) {
-  .recipe-details {
-    flex-direction: column;
     align-items: center; /* Centrera innehållet vertikalt */
   }
 
@@ -408,6 +387,10 @@ body {
 
   .recipe-details-btn-grid {
     margin-top: 10px; /* Öka avståndet mellan knapparna och den övre kolumnen */
+  }
+
+  .form-item-no-grow {
+    flex-grow: 1;
   }
 }
 
